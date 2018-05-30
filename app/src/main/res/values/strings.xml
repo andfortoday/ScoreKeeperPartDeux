@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Score Keeper: Part Deux</string>
+
+    <string name="txtHomeTeam">"Home Team"</string>
+    <string name="txtAwayTeam">"Away Team"</string>
+
+    <string name="txtInitialCount">"0"</string>
+    <string name="txtInitialCountPenYds">"0 penalty yards"</string>
+
+    <string name="btnTouchdown">"touchdown\n+6"</string>
+    <string name="btnXP">"xp\n+1"</string>
+    <string name="btnFG">"fg\n+3"</string>
+    <string name="btnSafety">"safety\n+2"</string>
+
+    <string name="txtPenalties">"penalties"</string>
+
+    <string name="btnPen5Y">"+5\nyds"</string>
+    <string name="btnPen10Y">"+10\nyds"</string>
+    <string name="btnPen15Y">"+15\nyds"</string>
+
+    <string name="btnReset">"reset"</string>
+
+</resources>

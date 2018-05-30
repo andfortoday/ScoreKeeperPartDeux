@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="txtTeamBorder">8dp</dimen>
+    <dimen name="txtTeamBorderTop">16dp</dimen>
+    <dimen name="txtTeam">18sp</dimen>
+    <dimen name="txtScore">64sp</dimen>
+    <dimen name="txtPenaltyYds">18sp</dimen>
+    <dimen name="txtPenaltyCap">18sp</dimen>
+
+    <dimen name="stayAwayFromTheLine">4dp</dimen>
+    <dimen name="splitLineWidth">1dp</dimen>
+
+    <!--match_constraint is not working for layout_width, so instead of "hard-coding" i'm declaring a dimension for it here-->
+    <dimen name="matchConstraint">0dp</dimen>
+
+    <dimen name="logoSpace">32dp</dimen>
+</resources>

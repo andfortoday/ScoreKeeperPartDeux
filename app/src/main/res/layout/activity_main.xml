@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollWrapper"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/btnRelaxed"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <android.support.constraint.Guideline
+            android:id="@+id/vertGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <!--home team-->
+        <TextView
+            android:id="@+id/txtHomeTeam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/txtTeamBorder"
+            android:layout_marginLeft="@dimen/txtTeamBorder"
+            android:layout_marginRight="@dimen/txtTeamBorder"
+            android:layout_marginStart="@dimen/txtTeamBorder"
+            android:layout_marginTop="@dimen/txtTeamBorderTop"
+            android:text="@string/txtHomeTeam"
+            android:textColor="@color/colorTextDark"
+            android:textSize="@dimen/txtTeam"
+            app:layout_constraintEnd_toStartOf="@+id/vertGuideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!--away team-->
+        <TextView
+            android:id="@+id/txtAwayTeam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/txtTeamBorder"
+            android:layout_marginLeft="@dimen/txtTeamBorder"
+            android:layout_marginRight="@dimen/txtTeamBorder"
+            android:layout_marginStart="@dimen/txtTeamBorder"
+            android:layout_marginTop="@dimen/txtTeamBorderTop"
+            android:text="@string/txtAwayTeam"
+            android:textColor="@color/colorTextDark"
+            android:textSize="@dimen/txtTeam"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/vertGuideline"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!--home score-->
+        <TextView
+            android:id="@+id/txtHomeScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/txtTeamBorder"
+            android:layout_marginLeft="@dimen/txtTeamBorder"
+            android:layout_marginRight="@dimen/txtTeamBorder"
+            android:layout_marginStart="@dimen/txtTeamBorder"
+            android:layout_marginTop="@dimen/txtTeamBorderTop"
+            android:text="@string/txtInitialCount"
+            android:textColor="@color/colorTextDark"
+            android:textSize="@dimen/txtScore"
+            app:layout_constraintEnd_toStartOf="@+id/vertGuideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtHomeTeam" />
+        <!--away score-->
+        <TextView
+            android:id="@+id/txtAwayScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/txtTeamBorder"
+            android:layout_marginLeft="@dimen/txtTeamBorder"
+            android:layout_marginRight="@dimen/txtTeamBorder"
+            android:layout_marginStart="@dimen/txtTeamBorder"
+            android:layout_marginTop="@dimen/txtTeamBorderTop"
+            android:text="@string/txtInitialCount"
+            android:textColor="@color/colorTextDark"
+            android:textSize="@dimen/txtScore"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/vertGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/txtAwayTeam" />
+        <!--home penalty yards-->
+        <TextView
+            android:id="@+id/txtHomePenYards"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/txtTeamBorder"
+            android:layout_marginLeft="@dimen/txtTeamBorder"
+            android:layout_marginRight="@dimen/txtTeamBorder"
+            android:layout_marginStart="@dimen/txtTeamBorder"
+            android:layout_marginTop="@dimen/txtTeamBorderTop"
+            android:text="@string/txtInitialCountPenYds"
+            android:textAlignment="center"
+            android:textColor="@color/colorTextPenalty"
+            android:textSize="@dimen/txtPenaltyYds"
+            app:layout_constraintEnd_toStartOf="@+id/vertGuideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtHomeScore" />
+        <!--away penalty yards-->
+        <TextView
+            android:id="@+id/txtAwayPenYards"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/txtTeamBorder"
+            android:layout_marginLeft="@dimen/txtTeamBorder"
+            android:layout_marginRight="@dimen/txtTeamBorder"
+            android:layout_marginStart="@dimen/txtTeamBorder"
+            android:layout_marginTop="@dimen/txtTeamBorderTop"
+            android:text="@string/txtInitialCountPenYds"
+            android:textAlignment="center"
+            android:textColor="@color/colorTextPenalty"
+            android:textSize="@dimen/txtPenaltyYds"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/vertGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/txtAwayScore" />
+
+        <!--buttons? imagebutton? see tabs open in chrome-->
+        <!--start home scoring buttons-->
+        <!--home touchdown button-->
+        <Button
+            android:id="@+id/btnHomeTouchdown"
+            style="?android:borderlessButtonStyle"
+            android:layout_width="@dimen/matchConstraint"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/stayAwayFromTheLine"
+            android:layout_marginEnd="@dimen/stayAwayFromTheLine"
+            android:layout_marginLeft="@dimen/txtTeamBorder"
+            android:layout_marginRight="@dimen/stayAwayFromTheLine"
+            android:layout_marginStart="@dimen/txtTeamBorder"
+            android:layout_marginTop="@dimen/txtTeamBorderTop"
+            android:background="@drawable/borderless_selector"
+            android:onClick="scorePoints"
+            android:text="@string/btnTouchdown"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/btn_text"
+            app:layout_constraintEnd_toStartOf="@id/btnHomeXP"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtHomePenYards" />
+        <!--home: vertical line between scoring buttons-->
+        <View
+            android:id="@+id/splitHVert"
+            android:layout_width="@dimen/splitLineWidth"
+            android:layout_height="@dimen/matchConstraint"
+            android:layout_marginBottom="@dimen/txtTeamBorder"
+            android:layout_marginTop="@dimen/txtTeamBorder"
+            android:background="@color/colorTextLight"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/btnHomeFG"
+            app:layout_constraintStart_toEndOf="@id/btnHomeTouchdown"
+            app:layout_constraintTop_toTopOf="@id/btnHomeTouchdown" />
+        <!--home: horizontal line between scoring buttons-->
+        <View
+            android:id="@+id/splitHHoriz"
+            android:layout_width="@dimen/matchConstraint"
+            android:layout_height="1dp"
+            android:background="@color/colorTextLight"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@id/vertGuideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnHomeTouchdown" />
+
+        <!--home xp button-->
+        <Button
+            android:id="@+id/btnHomeXP"
+            style="?android:borderlessButtonStyle"
+            android:layout_width="@dimen/matchConstraint"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/stayAwayFromTheLine"
+            android:layout_marginEnd="@dimen/stayAwayFromTheLine"
+            android:layout_marginLeft="@dimen/stayAwayFromTheLine"
+            android:layout_marginRight="@dimen/txtTeamBorder"
+            android:layout_marginStart="@dimen/stayAwayFromTheLine"
+            android:layout_marginTop="@dimen/txtTeamBorderTop"
+            android:background="@drawable/borderless_selector"
+            android:onClick="scorePoints"
+            android:text="@string/btnXP"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/colorTextLight"
+            app:layout_constraintEnd_toStartOf="@id/vertGuideline"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/btnHomeTouchdown"
+            app:layout_constraintTop_toBottomOf="@+id/txtHomePenYards" />
+
+        <!--home fg button-->
+        <Button
+            android:id="@+id/btnHomeFG"
+            style="?android:borderlessButtonStyle"
+            android:layout_width="@dimen/matchConstraint"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/txtTeamBorder"
+            android:layout_marginEnd="@dimen/stayAwayFromTheLine"
+            android:layout_marginLeft="@dimen/txtTeamBorder"
+            android:layout_marginRight="@dimen/stayAwayFromTheLine"
+            android:layout_marginStart="@dimen/txtTeamBorder"
+            android:layout_marginTop="@dimen/stayAwayFromTheLine"
+            android:background="@drawable/borderless_selector"
+            android:onClick="scorePoints"
+            android:text="@string/btnFG"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/btn_text"
+            app:layout_constraintEnd_toStartOf="@id/btnHomeSafety"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnHomeTouchdown" />
+        <!--home safety button-->
+        <Button
+            android:id="@+id/btnHomeSafety"
+            style="?android:borderlessButtonStyle"
+            android:layout_width="@dimen/matchConstraint"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/txtTeamBorder"
+            android:layout_marginEnd="@dimen/txtTeamBorder"
+            android:layout_marginLeft="@dimen/stayAwayFromTheLine"
+            android:layout_marginRight="@dimen/txtTeamBorder"
+            android:layout_marginStart="@dimen/stayAwayFromTheLine"
+            android:layout_marginTop="@dimen/stayAwayFromTheLine"
+            android:background="@drawable/borderless_selector"
+            android:onClick="scorePoints"
+            android:text="@string/btnSafety"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/btn_text"
+            app:layout_constraintEnd_toStartOf="@id/vertGuideline"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/btnHomeFG"
+            app:layout_constraintTop_toBottomOf="@+id/btnHomeXP" />
+
+        <!--start home penalty section-->
+
+        <!--penalty text-->
+        <TextView
+            android:id="@+id/txtCapHPenalties"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/txtTeamBorder"
+            android:text="@string/txtPenalties"
+            android:textColor="@color/colorTextDark"
+            android:textSize="@dimen/txtPenaltyYds"
+            app:layout_constraintEnd_toStartOf="@+id/vertGuideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnHomeFG" />
+
+        <!--match_constraint is not working for layout_width, so instead of "hard-coding" 0dp i'm declaring a dimension for it here-->
+        <Button
+            android:id="@+id/btnHomePen5Y"
+            style="?android:borderlessButtonStyle"
+            android:layout_width="@dimen/matchConstraint"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/txtTeamBorder"
+            android:background="@drawable/borderless_selector"
+            android:onClick="addPenaltyYards"
+            android:text="@string/btnPen5Y"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/btn_text"
+            app:layout_constraintEnd_toStartOf="@id/btnHomePen10Y"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtCapHPenalties" />
+
+        <!--home - splitter between 5 and 10 yd penalty buttons-->
+        <View
+            android:id="@+id/splitH5to10"
+            android:layout_width="@dimen/splitLineWidth"
+            android:layout_height="@dimen/matchConstraint"
+            android:layout_marginBottom="@dimen/txtTeamBorder"
+            android:layout_marginTop="@dimen/txtTeamBorder"
+            android:background="@color/colorTextLight"
+            app:layout_constraintBottom_toBottomOf="@id/btnHomePen5Y"
+            app:layout_constraintEnd_toStartOf="@id/btnHomePen10Y"
+            app:layout_constraintStart_toEndOf="@id/btnHomePen5Y"
+            app:layout_constraintTop_toTopOf="@id/btnHomePen5Y" />
+
+        <!--match_constraint is not working for layout_width, so instead of "hard-coding" 0dp i'm declaring a dimension for it here-->
+        <Button
+            android:id="@+id/btnHomePen10Y"
+            style="?android:borderlessButtonStyle"
+            android:layout_width="@dimen/matchConstraint"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/txtTeamBorder"
+            android:background="@drawable/borderless_selector"
+            android:onClick="addPenaltyYards"
+            android:text="@string/btnPen10Y"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/btn_text"
+            app:layout_constraintEnd_toStartOf="@id/btnHomePen15Y"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/btnHomePen5Y"
+            app:layout_constraintTop_toBottomOf="@id/txtCapHPenalties" />
+
+        <!--home - splitter between 10 and 15 yd penalty buttons-->
+        <View
+            android:id="@+id/splitH10to15"
+            android:layout_width="@dimen/splitLineWidth"
+            android:layout_height="@dimen/matchConstraint"
+            android:layout_marginBottom="@dimen/txtTeamBorder"
+            android:layout_marginTop="@dimen/txtTeamBorder"
+            android:background="@color/colorTextLight"
+            app:layout_constraintBottom_toBottomOf="@id/btnHomePen10Y"
+            app:layout_constraintEnd_toStartOf="@id/btnHomePen15Y"
+            app:layout_constraintStart_toEndOf="@id/btnHomePen10Y"
+            app:layout_constraintTop_toTopOf="@id/btnHomePen10Y" />
+
+        <!--match_constraint is not working for layout_width, so instead of "hard-coding" 0dp i'm declaring a dimension for it here-->
+        <Button
+            android:id="@+id/btnHomePen15Y"
+            style="?android:borderlessButtonStyle"
+            android:layout_width="@dimen/matchConstraint"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/txtTeamBorder"
+            android:background="@drawable/borderless_selector"
+            android:onClick="addPenaltyYards"
+            android:text="@string/btnPen15Y"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/btn_text"
+            app:layout_constraintEnd_toStartOf="@id/vertGuideline"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/btnHomePen10Y"
+            app:layout_constraintTop_toBottomOf="@id/txtCapHPenalties" />
+
+        <!--line that splits home and away -->
+        <View
+            android:id="@+id/vertTeamSplitter"
+            android:layout_width="@dimen/splitLineWidth"
+            android:layout_height="@dimen/matchConstraint"
+            android:layout_marginTop="@dimen/txtTeamBorderTop"
+            android:background="@color/colorTextLight"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/btnHomePen15Y"
+            app:layout_constraintStart_toStartOf="@id/vertGuideline"
+            app:layout_constraintTop_toTopOf="@id/txtHomeTeam" />
+
+
+        <!--
+        ***
+            neeeeeeext side
+        ***
+        -->
+
+
+        <!--start away scoring buttons-->
+
+        <!--away touchdown button-->
+        <Button
+            android:id="@+id/btnAwayTouchdown"
+            style="?android:borderlessButtonStyle"
+            android:layout_width="@dimen/matchConstraint"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/stayAwayFromTheLine"
+            android:layout_marginEnd="@dimen/stayAwayFromTheLine"
+            android:layout_marginLeft="@dimen/txtTeamBorder"
+            android:layout_marginRight="@dimen/stayAwayFromTheLine"
+            android:layout_marginStart="@dimen/txtTeamBorder"
+            android:layout_marginTop="@dimen/txtTeamBorderTop"
+            android:background="@drawable/borderless_selector"
+            android:onClick="scorePoints"
+            android:text="@string/btnTouchdown"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/btn_text"
+            app:layout_constraintEnd_toStartOf="@id/btnAwayXP"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/vertGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/txtAwayPenYards" />
+        <!--away: vertical line between scoring buttons-->
+        <View
+            android:id="@+id/splitAVert"
+            android:layout_width="@dimen/splitLineWidth"
+            android:layout_height="@dimen/matchConstraint"
+            android:layout_marginBottom="@dimen/txtTeamBorder"
+            android:layout_marginTop="@dimen/txtTeamBorder"
+            android:background="@color/colorTextLight"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/btnAwayFG"
+            app:layout_constraintStart_toEndOf="@id/btnAwayTouchdown"
+            app:layout_constraintTop_toTopOf="@id/btnAwayTouchdown" />
+        <!--horizontal line between scoring buttons-->
+        <View
+            android:id="@+id/splitAHoriz"
+            android:layout_width="@dimen/matchConstraint"
+            android:layout_height="1dp"
+            android:background="@color/colorTextLight"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toEndOf="@id/vertGuideline"
+            app:layout_constraintTop_toBottomOf="@id/btnAwayTouchdown" />
+
+        <!--home xp button-->
+        <Button
+            android:id="@+id/btnAwayXP"
+            style="?android:borderlessButtonStyle"
+            android:layout_width="@dimen/matchConstraint"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/stayAwayFromTheLine"
+            android:layout_marginEnd="@dimen/txtTeamBorder"
+            android:layout_marginLeft="@dimen/stayAwayFromTheLine"
+            android:layout_marginRight="@dimen/txtTeamBorder"
+            android:layout_marginStart="@dimen/stayAwayFromTheLine"
+            android:layout_marginTop="@dimen/txtTeamBorderTop"
+            android:background="@drawable/borderless_selector"
+            android:onClick="scorePoints"
+            android:text="@string/btnXP"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/colorTextLight"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/btnAwayTouchdown"
+            app:layout_constraintTop_toBottomOf="@+id/txtAwayPenYards" />
+
+        <!--home fg button-->
+        <Button
+            android:id="@+id/btnAwayFG"
+            style="?android:borderlessButtonStyle"
+            android:layout_width="@dimen/matchConstraint"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/txtTeamBorder"
+            android:layout_marginEnd="@dimen/stayAwayFromTheLine"
+            android:layout_marginLeft="@dimen/txtTeamBorder"
+            android:layout_marginRight="@dimen/stayAwayFromTheLine"
+            android:layout_marginStart="@dimen/txtTeamBorder"
+            android:layout_marginTop="@dimen/stayAwayFromTheLine"
+            android:background="@drawable/borderless_selector"
+            android:onClick="scorePoints"
+            android:text="@string/btnFG"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/btn_text"
+            app:layout_constraintEnd_toStartOf="@id/btnAwaySafety"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="@id/vertGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/btnAwayTouchdown" />
+        <!--home safety button-->
+        <Button
+            android:id="@+id/btnAwaySafety"
+            style="?android:borderlessButtonStyle"
+            android:layout_width="@dimen/matchConstraint"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/txtTeamBorder"
+            android:layout_marginEnd="@dimen/txtTeamBorder"
+            android:layout_marginLeft="@dimen/stayAwayFromTheLine"
+            android:layout_marginRight="@dimen/txtTeamBorder"
+            android:layout_marginStart="@dimen/stayAwayFromTheLine"
+            android:layout_marginTop="@dimen/stayAwayFromTheLine"
+            android:background="@drawable/borderless_selector"
+            android:onClick="scorePoints"
+            android:text="@string/btnSafety"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/btn_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/btnAwayFG"
+            app:layout_constraintTop_toBottomOf="@+id/btnAwayXP" />
+
+        <!--start away penalty section-->
+
+        <!--penalty text - away -->
+        <TextView
+            android:id="@+id/txtCapAPenalties"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/txtTeamBorder"
+            android:text="@string/txtPenalties"
+            android:textColor="@color/colorTextDark"
+            android:textSize="@dimen/txtPenaltyYds"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/vertGuideline"
+            app:layout_constraintTop_toBottomOf="@id/btnAwayFG" />
+
+        <!--5y penalty away-->
+        <!--match_constraint is not working for layout_width, so instead of "hard-coding" 0dp i'm declaring a dimension for it here-->
+        <Button
+            android:id="@+id/btnAwayPen5Y"
+            style="?android:borderlessButtonStyle"
+            android:layout_width="@dimen/matchConstraint"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/txtTeamBorder"
+            android:background="@drawable/borderless_selector"
+            android:onClick="addPenaltyYards"
+            android:text="@string/btnPen5Y"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/btn_text"
+            app:layout_constraintEnd_toStartOf="@id/btnAwayPen10Y"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="@id/vertGuideline"
+            app:layout_constraintTop_toBottomOf="@id/txtCapAPenalties" />
+
+        <!--away - splitter between 5 and 10 yd penalty buttons-->
+        <View
+            android:id="@+id/splitA5to10"
+            android:layout_width="@dimen/splitLineWidth"
+            android:layout_height="@dimen/matchConstraint"
+            android:layout_marginBottom="@dimen/txtTeamBorder"
+            android:layout_marginTop="@dimen/txtTeamBorder"
+            android:background="@color/colorTextLight"
+            app:layout_constraintBottom_toBottomOf="@id/btnAwayPen5Y"
+            app:layout_constraintEnd_toStartOf="@id/btnAwayPen10Y"
+            app:layout_constraintStart_toEndOf="@id/btnAwayPen5Y"
+            app:layout_constraintTop_toTopOf="@id/btnAwayPen5Y" />
+
+        <!--10y penalty away-->
+        <!--match_constraint is not working for layout_width, so instead of "hard-coding" 0dp i'm declaring a dimension for it here-->
+        <Button
+            android:id="@+id/btnAwayPen10Y"
+            style="?android:borderlessButtonStyle"
+            android:layout_width="@dimen/matchConstraint"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/txtTeamBorder"
+            android:background="@drawable/borderless_selector"
+            android:onClick="addPenaltyYards"
+            android:text="@string/btnPen10Y"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/btn_text"
+            app:layout_constraintEnd_toStartOf="@id/btnAwayPen15Y"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/btnAwayPen5Y"
+            app:layout_constraintTop_toBottomOf="@id/txtCapAPenalties" />
+
+        <!--away - splitter between 10 and 15 yd penalty buttons-->
+        <View
+            android:id="@+id/splitA10to15"
+            android:layout_width="@dimen/splitLineWidth"
+            android:layout_height="@dimen/matchConstraint"
+            android:layout_marginBottom="@dimen/txtTeamBorder"
+            android:layout_marginTop="@dimen/txtTeamBorder"
+            android:background="@color/colorTextLight"
+            app:layout_constraintBottom_toBottomOf="@id/btnAwayPen10Y"
+            app:layout_constraintEnd_toStartOf="@id/btnAwayPen15Y"
+            app:layout_constraintStart_toEndOf="@id/btnAwayPen10Y"
+            app:layout_constraintTop_toTopOf="@id/btnAwayPen10Y" />
+
+        <!--15y penalty away-->
+        <!--match_constraint is not working for layout_width, so instead of "hard-coding" 0dp i'm declaring a dimension for it here-->
+        <Button
+            android:id="@+id/btnAwayPen15Y"
+            style="?android:borderlessButtonStyle"
+            android:layout_width="@dimen/matchConstraint"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/txtTeamBorder"
+            android:background="@drawable/borderless_selector"
+            android:onClick="addPenaltyYards"
+            android:text="@string/btnPen15Y"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/btn_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/btnAwayPen10Y"
+            app:layout_constraintTop_toBottomOf="@id/txtCapAPenalties" />
+
+        <ImageView
+            android:id="@+id/logoSaints"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/logoSpace"
+            android:layout_marginStart="@dimen/logoSpace"
+            android:layout_marginTop="@dimen/txtTeamBorderTop"
+            android:src="@drawable/saints_logo_150"
+            app:layout_constraintBottom_toTopOf="@id/btnReset"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnHomePen15Y" />
+
+        <!--add reset button in the middle, bring the constraint of the -->
+        <!--dividing line to the top of the button -->
+        <!--reset button-->
+        <Button
+            android:id="@+id/btnReset"
+            style="?android:borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="@dimen/txtTeamBorderTop"
+            android:background="@drawable/borderless_selector"
+            android:onClick="startAfresh"
+            android:text="@string/btnReset"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/btn_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logoSaints" />
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
